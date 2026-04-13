@@ -124,6 +124,33 @@ location / {
 [5]: https://router.vuejs.org/guide/essentials/history-mode.html
 [6]: https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
 
+### Deploying under a sub-path
+
+By default the web UI is served from the root of the domain (eg. `https://alerta.example.com/`).
+To serve it from a sub-path (eg. `https://example.com/alerta/`) you must build
+your own bundle with the sub-path baked in, because static asset URLs in
+`index.html` are resolved at build time.
+
+Set `BASE_URL` to the sub-path (with trailing slash) when building:
+
+    $ export BASE_URL=/alerta/
+    $ npm install
+    $ npm run build
+
+Then serve the `dist/` directory under that same path. An nginx example:
+
+```
+location /alerta/ {
+  alias /var/www/alerta-webui/dist/;
+  try_files $uri $uri/ /alerta/index.html;
+}
+```
+
+Setting `base_path` in `config.json` on its own is **not** sufficient — it only
+configures the Vue router and OAuth redirect URI; it does not rewrite the asset
+URLs in `index.html` or the location from which `config.json` itself is fetched.
+A rebuild is required.
+
 Development
 -----------
 
