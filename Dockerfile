@@ -1,6 +1,7 @@
 # build stage
-FROM node:12-alpine as build-stage
-RUN apk add --no-cache git
+FROM node:14-alpine as build-stage
+RUN apk add --no-cache git && \
+    git config --global url."https://github.com/".insteadOf ssh://git@github.com/
 WORKDIR /app
 COPY package*.json ./
 RUN npm install

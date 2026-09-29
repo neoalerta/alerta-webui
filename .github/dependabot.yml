@@ -24,6 +24,14 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "@vue/*"
         update-types: ["version-update:semver-major"]
+      # vue-i18n 9+ só roda em Vue 3.
+      - dependency-name: "vue-i18n"
+        update-types: ["version-update:semver-major"]
+      # Toolchain presa ao webpack 4 / vue-cli 4 e ao Node 14 do CI.
+      - dependency-name: "prettier"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "stylus-loader"
+        update-types: ["version-update:semver-major"]
 
   # Actions usadas nos workflows (checkout, setup-node etc.).
   - package-ecosystem: "github-actions"
