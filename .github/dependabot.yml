@@ -18,6 +18,10 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
+      # 0.5+ exige o vue-cli 5 (quebra o build no vue-cli 4 com
+      # "transpileDependencies.indexOf is not a function").
+      - dependency-name: "vue-cli-plugin-vuetify"
+        versions: [">=0.5.0"]
 
   # Actions usadas nos workflows: um PR por mês com todas.
   - package-ecosystem: "github-actions"
