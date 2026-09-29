@@ -13,7 +13,7 @@ function freshState() {
 describe('config store', () => {
   describe('default state', () => {
     it('has expected defaults', () => {
-      expect(defaultState.endpoint).toBe('http://local.alerta.io:8080')
+      expect(defaultState.endpoint).toBe('http://localhost:8080')
       expect(defaultState.auth_required).toBe(true)
       expect(defaultState.provider).toBe('basic')
       expect(defaultState.signup_enabled).toBe(true)
@@ -47,7 +47,7 @@ describe('config store', () => {
     it('getConfig returns a specific setting', () => {
       const state = freshState()
       const getter = getters.getConfig(state)
-      expect(getter('endpoint')).toBe('http://local.alerta.io:8080')
+      expect(getter('endpoint')).toBe('http://localhost:8080')
       expect(getter('auth_required')).toBe(true)
       expect(getter('refresh_interval')).toBe(5000)
     })

@@ -1,7 +1,7 @@
 import stateMerge from 'vue-object-merge'
 
 const state = {
-  endpoint: 'http://local.alerta.io:8080',
+  endpoint: 'http://localhost:8080',
   alarm_model: {}, // includes severity, colors and status maps
 
   auth_required: true,
