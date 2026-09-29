@@ -1,10 +1,10 @@
 name: Deploy
 
+# Desligado no fork: este workflow faz deploy na infraestrutura do upstream
+# (Fly.io / GitHub Pages com endpoint e tracking do alerta.io).
+# Rode manualmente só depois de adaptar destino e segredos.
 on:
-  push:
-    branches: [ master, release/* ]
-  pull_request:
-    branches: [ master, release/* ]
+  workflow_dispatch:
 
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
