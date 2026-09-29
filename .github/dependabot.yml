@@ -1,0 +1,32 @@
+version: 2
+updates:
+  # Dependências do npm. Menores e patches chegam agrupados num PR por semana
+  # para não virar ruído. Majors dos frameworks congelados (Vue 2 / Vuetify 1.5)
+  # ficam de fora: migrar é uma decisão, não uma atualização.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      minor-e-patch:
+        update-types: ["minor", "patch"]
+    ignore:
+      - dependency-name: "vue"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "vuetify"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "vuex"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "vue-router"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "vue-template-compiler"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@vue/*"
+        update-types: ["version-update:semver-major"]
+
+  # Actions usadas nos workflows (checkout, setup-node etc.).
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
