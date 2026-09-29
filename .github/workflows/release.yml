@@ -52,14 +52,14 @@ jobs:
           tar cvfz alerta-webui.tar.gz dist/*
       - name: Upload Zip File
         id: upload-zip-file
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: Release ${{ github.ref_name }}
           files: ./alerta-webui.zip
       - name: Upload Compressed TAR File
         id: upload-tarball
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: ./alerta-webui.tar.gz
