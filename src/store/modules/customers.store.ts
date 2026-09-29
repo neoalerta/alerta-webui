@@ -50,7 +50,7 @@ const getters = {
     return state.customers
       .map(c => c.customer)
       .filter(c => !!c)
-      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+      .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}))
   }
 }
 
