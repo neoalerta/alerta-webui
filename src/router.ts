@@ -94,7 +94,7 @@ export function createRouter(basePath): VueRouter {
       {
         path: '/help',
         name: 'help',
-        component: () => window.open('https://docs.alerta.io/?utm_source=app', '_blank')
+        component: () => window.open('https://github.com/neoalerta/alerta-docs', '_blank')
       },
       {
         path: '/about',
