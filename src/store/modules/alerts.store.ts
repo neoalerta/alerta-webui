@@ -311,15 +311,12 @@ const getters = {
     (showAllowedEnvs = true) => {
       if (showAllowedEnvs) {
         return [
-          ...new Set([
-            ...(rootState.config.environments || []),
-            ...state.environments.map(e => e.environment)
-          ])
-        ].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+          ...new Set([...(rootState.config.environments || []), ...state.environments.map(e => e.environment)])
+        ].sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}))
       }
       return state.environments
         .map(e => e.environment)
-        .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+        .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}))
     },
 
   counts: state => {
@@ -329,7 +326,7 @@ const getters = {
         grp['ALL'] = grp['ALL'] + e.count
         return grp
       },
-      { ALL: 0 }
+      {ALL: 0}
     )
   },
 
@@ -337,21 +334,21 @@ const getters = {
     return state.services
       .map(s => s.service)
       .filter(s => !!s)
-      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+      .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}))
   },
 
   groups: state => {
     return state.groups
       .map(g => g.group)
       .filter(g => !!g)
-      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+      .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}))
   },
 
   tags: state => {
     return state.tags
       .map(t => t.tag)
       .filter(t => !!t)
-      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+      .sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}))
   },
 
   getHash: state => {
