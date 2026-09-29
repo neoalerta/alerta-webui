@@ -5,6 +5,12 @@ on:
     branches: [ master, release/* ]
     tags: [ '**' ]
 
+# Sem packages: write o GITHUB_TOKEN da org não consegue criar o pacote no GHCR
+# ("installation not allowed to Create organization package").
+permissions:
+  contents: read
+  packages: write
+
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
