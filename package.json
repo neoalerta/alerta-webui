@@ -70,5 +70,13 @@
     "vue-cli-plugin-vuetify": "^0.4.6",
     "vue-template-compiler": "^2.7.16",
     "vuetify-loader": "^1.7.3"
+  },
+  "overrides": {
+    "@alerta/vue-authenticate": {
+      "axios": "$axios"
+    },
+    "vue-authenticate": {
+      "axios": "$axios"
+    }
   }
 }
